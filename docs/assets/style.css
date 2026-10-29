@@ -1,0 +1,104 @@
+/* 限定みやげ地図 — 路線図の色を手がかりにした配色。東京=山手線の緑、大阪=環状線のオレンジ */
+:root{
+  --paper:#f3f5f4; --surface:#ffffff; --ink:#1d2a33; --muted:#5d6b72; --rule:#d5dcdc;
+  --yamanote:#5e9a26; --loop:#d65d14; --link:#1f5f8b;
+  --only:#b3261e; --only-bg:#fbe9e7; --area:#1f5f8b; --area-bg:#e3eef6; --meibutsu:#6b5a12; --meibutsu-bg:#f4efd8;
+  --pr:#6b5a12; --pr-bg:#f4efd8;
+  --accent:var(--ink);
+  --f-display:"Dela Gothic One","Hiragino Sans","Yu Gothic",sans-serif;
+  --f-body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root{
+  --paper:#141a1e; --surface:#1c2429; --ink:#e6ecee; --muted:#9aa8ae; --rule:#2f3a40;
+  --yamanote:#8cc653; --loop:#f08a4b; --link:#8cc3ea;
+  --only:#ff8a80; --only-bg:#3a1f1d; --area:#8cc3ea; --area-bg:#1b2e3c; --meibutsu:#e2cf7a; --meibutsu-bg:#33301c;
+  --pr:#e2cf7a; --pr-bg:#33301c;
+  color-scheme:dark}}
+.c-tokyo{--accent:var(--yamanote)} .c-osaka{--accent:var(--loop)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.7;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:var(--link)}
+a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+img{max-width:100%}
+.wrap{max-width:1120px;margin:0 auto}
+.site-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 20px;padding-block:16px;border-bottom:1px solid var(--rule)}
+.logo{font-family:var(--f-display);font-size:22px;color:var(--ink);text-decoration:none;letter-spacing:.02em}
+.logo span{color:var(--yamanote)} .logo span+span{color:var(--loop)}
+.site-nav{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:14px}
+.site-nav a{color:var(--ink);text-decoration:none;font-weight:500}
+.site-nav a:hover{color:var(--link)}
+main{padding-block:24px 48px;display:grid;gap:28px}
+.crumbs{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px}
+.crumbs a{color:var(--muted)}
+.crumbs li{list-style:none} .crumbs ol{margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 8px}
+.crumbs li+li::before{content:"›";margin-right:8px}
+h1{font-family:var(--f-display);font-weight:400;font-size:clamp(26px,4.6vw,40px);line-height:1.2;margin:0;text-wrap:balance;letter-spacing:.01em}
+h1 .acc{color:var(--accent)}
+h2{font-size:20px;line-height:1.4;margin:0;text-wrap:balance}
+h3{font-size:17px;line-height:1.4;margin:0}
+.lead{color:var(--muted);margin:8px 0 0;max-width:40em}
+.eyebrow{font-size:12px;letter-spacing:.12em;color:var(--accent);font-weight:700;margin:0 0 6px}
+.section{display:grid;gap:14px}
+.map{height:min(60vh,460px);min-height:300px;border-radius:14px;border:1px solid var(--rule);background:var(--surface);z-index:0}
+.map.small{height:260px;min-height:220px}
+.split{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:24px;align-items:start}
+@media (max-width:860px){.split{grid-template-columns:1fr}}
+.cities{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px}
+.city-card{display:grid;gap:6px;padding:18px;border-radius:14px;background:var(--surface);border:1px solid var(--rule);border-top:6px solid var(--accent);text-decoration:none;color:var(--ink)}
+.city-card:hover{border-color:var(--accent)}
+.city-card .count{font-family:var(--f-mono);font-size:13px;color:var(--muted)}
+/* 絞り込み */
+.finder{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:16px;display:grid;gap:12px}
+.finder-row{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:end}
+.field{display:grid;gap:4px;font-size:13px;color:var(--muted);min-width:0}
+.field select{font:inherit;font-size:15px;color:var(--ink);background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:7px 10px}
+.check{display:flex;gap:6px;align-items:center;font-size:14px;color:var(--ink);padding-block:7px}
+.result-count{font-size:13px;color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:12px}
+.card{display:grid;gap:6px;align-content:start;padding:14px 16px;border-radius:12px;background:var(--surface);border:1px solid var(--rule);text-decoration:none;color:var(--ink);min-width:0}
+.card:hover{border-color:var(--ink)}
+.card .name{font-weight:700;line-height:1.45}
+.card .meta{font-size:13px;color:var(--muted)}
+.card .row{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.price{font-family:var(--f-mono);font-size:14px;font-variant-numeric:tabular-nums}
+.tag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.04em;padding:2px 8px;border-radius:4px;line-height:1.6}
+.tag.only{color:var(--only);background:var(--only-bg)}
+.tag.area{color:var(--area);background:var(--area-bg)}
+.tag.meibutsu{color:var(--meibutsu);background:var(--meibutsu-bg)}
+.tag.plain{color:var(--muted);border:1px solid var(--rule)}
+.tag.pr{color:var(--pr);background:var(--pr-bg)}
+/* 店ブロック */
+.spots{display:grid;gap:14px}
+.spot{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:16px;display:grid;gap:10px}
+.spot-head{display:flex;gap:12px;align-items:flex-start}
+.num{flex:none;width:28px;height:28px;border-radius:50%;background:var(--accent);color:var(--surface);font-family:var(--f-mono);font-size:13px;display:grid;place-items:center}
+.spot .where{font-size:13px;color:var(--muted);margin:2px 0 0}
+.items{list-style:none;margin:0;padding:0}
+.items li{display:grid;grid-template-columns:1fr auto;gap:2px 12px;padding:9px 0;border-top:1px dashed var(--rule)}
+.items li:first-child{border-top:0}
+.items a{font-weight:700;color:var(--ink);text-decoration:none}
+.items a:hover{color:var(--link);text-decoration:underline}
+.items .sub{grid-column:1/-1;font-size:13px;color:var(--muted)}
+/* 商品ページ */
+.facts{display:grid;grid-template-columns:max-content 1fr;gap:8px 18px;margin:0;background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:16px}
+.facts dt{color:var(--muted);font-size:14px}
+.facts dd{margin:0;min-width:0}
+.prose{max-width:40em}
+.prose p{margin:0 0 .8em}
+.note{font-size:14px;color:var(--muted);border-left:3px solid var(--rule);padding-left:12px;margin:0}
+.btn{display:inline-flex;gap:6px;align-items:center;font-weight:700;font-size:14px;padding:8px 14px;border-radius:999px;border:1px solid var(--ink);color:var(--ink);text-decoration:none;background:var(--surface)}
+.btn:hover{background:var(--ink);color:var(--paper)}
+.aff{display:grid;gap:8px;background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:14px 16px}
+.aff ul{margin:0;padding-left:1.2em}
+.site-foot{border-top:1px solid var(--rule);padding-block:20px 36px;font-size:13px;color:var(--muted);display:grid;gap:8px}
+.site-foot a{color:var(--muted)}
+.site-foot nav{display:flex;flex-wrap:wrap;gap:4px 16px}
+/* Leaflet マーカー */
+.pin{width:28px;height:28px;border-radius:50%;background:var(--pin-bg,#1d2a33);color:#fff;border:2.5px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.35);display:grid;place-items:center;font:500 12px var(--f-mono)}
+.pin.tokyo{--pin-bg:#4f8a1c} .pin.osaka{--pin-bg:#c9520f}
+.leaflet-popup-content{font-family:var(--f-body);font-size:14px;line-height:1.5}
+.leaflet-popup-content a{font-weight:700}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
