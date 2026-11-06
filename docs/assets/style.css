@@ -102,3 +102,14 @@ h3{font-size:17px;line-height:1.4;margin:0}
 .leaflet-popup-content{font-family:var(--f-body);font-size:14px;line-height:1.5}
 .leaflet-popup-content a{font-weight:700}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+/* 地域限定チェーン */
+.chains{display:grid;align-items:start;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:12px}
+.chain{background:var(--surface);border:1px solid var(--rule);border-top:4px solid var(--accent);border-radius:12px;padding:14px 16px;display:grid;gap:8px;align-content:start;min-width:0}
+.chain p{margin:0}
+.chain-head{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center}
+.chain-head h3{margin-right:4px}
+.facts.compact{padding:10px 12px;font-size:14px;background:var(--paper)}
+.chain .where,.chain .src{font-size:13px;color:var(--muted)}
+.chain .src a{color:var(--muted)}
+.formbox{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between;background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:12px 16px;color:var(--ink)}
+.formbox p{margin:0;max-width:40em}
