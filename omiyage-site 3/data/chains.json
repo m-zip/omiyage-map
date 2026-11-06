@@ -1,0 +1,34 @@
+{
+  "regions": [
+    {"id": "kansai", "name": "関西にしかないチェーン", "short": "関西", "lead": "大阪・兵庫・京都を中心に展開していて、関東には店がないチェーンです。旅行中に見かけたら寄ってみてください。"},
+    {"id": "kanto", "name": "関東にしかないチェーン", "short": "関東", "lead": "東京・神奈川など首都圏を中心に展開していて、関西には店がないチェーンです。"}
+  ],
+  "chains": [
+    {"id": "551-horai", "region": "kansai", "name": "551蓬莱", "genre": "中華・豚まん", "signature": "豚まん、焼売、甘酢団子", "takeout": "持ち帰り・お土産向き",
+     "area": "大阪を中心に関西のみ", "desc": "新大阪駅などで帰りに買うお土産の定番。豚まんは冷蔵で約3日もつので、新幹線で持ち帰る人が多いです。", "spot": "shin-osaka-station", "src": "mynavi-kansai", "checked": "2026-11-06"},
+    {"id": "rikuro", "region": "kansai", "name": "りくろーおじさんの店", "genre": "洋菓子", "signature": "焼きたてチーズケーキ", "takeout": "持ち帰り・お土産向き",
+     "area": "大阪府内のみ", "desc": "店頭で焼き上がると鐘が鳴る、ふわふわのチーズケーキの店。日持ちが短いので、遠方へは焼き菓子の「薪パイ」がおすすめです。", "spot": "rikuro-namba", "src": "funliday-osaka", "checked": "2026-11-06"},
+    {"id": "hokkyokusei", "region": "kansai", "name": "北極星", "genre": "洋食", "signature": "オムライス", "takeout": "お店で食べる（一部持ち帰り可）",
+     "area": "大阪発、関西のみ", "desc": "オムライス発祥の店として知られる大阪の洋食店。心斎橋本店は古い日本家屋で、座敷で食べられます。", "spot": null, "src": "mynavi-kansai,gltjp-hokkyokusei", "checked": "2026-11-06"},
+    {"id": "shizuya", "region": "kansai", "name": "志津屋", "genre": "パン", "signature": "カルネ、ビーフカツサンド", "takeout": "持ち帰り向き",
+     "area": "京都府内を中心に展開", "desc": "京都の人に親しまれているパン屋。ハムと玉ねぎをはさんだシンプルな「カルネ」が名物で、京都駅でも買えます。", "spot": null, "src": "mynavi-kansai", "checked": "2026-11-06"},
+    {"id": "kiyoken", "region": "kanto", "name": "崎陽軒", "genre": "シウマイ・駅弁", "signature": "シウマイ弁当、昔ながらのシウマイ", "takeout": "持ち帰り・お土産向き",
+     "area": "神奈川・東京・千葉・埼玉と静岡", "desc": "横浜名物のシウマイの店。東京駅や品川駅でも買えます。真空パックのシウマイは日持ちがするので、関東のお土産に向いています。", "spot": null, "src": "trafficnews-kiyoken", "checked": "2026-11-06"},
+    {"id": "hidakaya", "region": "kanto", "name": "日高屋", "genre": "中華", "signature": "中華そば、餃子", "takeout": "お店で食べる（持ち帰り可）",
+     "area": "関東の1都6県（2026年4月に新潟駅に関東以外で初出店）", "desc": "首都圏の駅前でよく見かける、安くて早い中華の店。関東の外には新潟に1店あるだけです。", "spot": null, "src": "mynavi-kanto,impress-hidakaya", "checked": "2026-11-06"},
+    {"id": "fujisoba", "region": "kanto", "name": "名代 富士そば", "genre": "立ち食いそば", "signature": "かけそば、カツ丼", "takeout": "お店で食べる",
+     "area": "首都圏中心", "desc": "首都圏に100店以上ある立ち食いそばの店。24時間営業の店が多く、早朝や深夜にも使えます。", "spot": null, "src": "mynavi-kanto", "checked": "2026-11-06"},
+    {"id": "komoro-soba", "region": "kanto", "name": "小諸そば", "genre": "立ち食いそば", "signature": "二枚もり", "takeout": "お店で食べる",
+     "area": "東京都を中心に展開", "desc": "東京のオフィス街に多い、更科粉を使った白っぽいそばの店。毎日店で打つそばが評判です。", "spot": null, "src": "mynavi-kanto", "checked": "2026-11-06"},
+    {"id": "tsubame-grill", "region": "kanto", "name": "つばめグリル", "genre": "洋食", "signature": "ハンブルグステーキ", "takeout": "お店で食べる（デリ店あり）",
+     "area": "首都圏中心", "desc": "アルミホイルに包んで焼く「ハンブルグステーキ」で知られる、1930年創業の洋食店。品川駅前に本店があります。", "spot": null, "src": "mynavi-kanto", "checked": "2026-11-06"}
+  ],
+  "sources": {
+    "mynavi-kansai": {"title": "マイナビニュース「関西にしかないチェーン店21選」（2026年1月）", "url": "https://news.mynavi.jp/article/20260109-3657671/"},
+    "mynavi-kanto": {"title": "マイナビニュース「首都圏にしかないチェーン店17選」（2025年6月）", "url": "https://news.mynavi.jp/article/20250616-3339582/"},
+    "gltjp-hokkyokusei": {"title": "GLTJP「北極星 心斎橋本店」", "url": "https://www.gltjp.com/ja/directory/item/15289"},
+    "trafficnews-kiyoken": {"title": "乗りものニュース「シウマイ弁当、意外と知らないそのヒミツ」（2015年）", "url": "https://trafficnews.jp/post/42058/2"},
+    "impress-hidakaya": {"title": "グルメ Watch「日高屋、関東圏外に初出店」（2026年4月）", "url": "https://gourmet.watch.impress.co.jp/docs/news/2100459.html"},
+    "funliday-osaka": {"title": "Funliday「大阪おすすめお土産20選」（2026年8月）", "url": "https://www.funliday.com/posts/osaka-omiyage/"}
+  }
+}

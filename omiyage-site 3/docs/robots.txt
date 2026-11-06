@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://m-zip.github.io/omiyage-map/sitemap.xml

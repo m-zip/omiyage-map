@@ -1,0 +1,15 @@
+{
+  "site_name": "限定みやげ地図",
+  "tagline": "その店・その駅でしか買えないお土産を、地図で探す",
+  "site_url": "https://m-zip.github.io",
+  "base_path": "/omiyage-map",
+  "owner": "向",
+  "contact": "tamago15pack@gmail.com",
+  "lang": "ja",
+  "affiliate_enabled": false,
+  "stay_links": {
+    "tokyo": [],
+    "osaka": []
+  },
+  "form_url": "https://forms.gle/PL3VDwr96cPR2YneA"
+}
