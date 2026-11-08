@@ -113,3 +113,14 @@ h3{font-size:17px;line-height:1.4;margin:0}
 .chain .src a{color:var(--muted)}
 .formbox{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between;background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:12px 16px;color:var(--ink)}
 .formbox p{margin:0;max-width:40em}
+/* 近くのお店 */
+.near-box{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between;background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:16px}
+.near-box p{margin:0;max-width:40em;color:var(--muted);font-size:14px}
+.btn-solid{background:var(--ink);color:var(--paper);font-size:15px;padding:10px 20px;cursor:pointer;font-family:inherit}
+.btn-solid:hover{opacity:.88;background:var(--ink);color:var(--paper)}
+.btn-solid:disabled{opacity:.5;cursor:wait}
+.near-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:12px}
+.near-list:empty{display:none}
+.near-list .card{height:100%}
+.dist{font-family:var(--f-mono);font-size:14px;font-variant-numeric:tabular-nums;color:var(--ink)}
+.me-pin{width:18px;height:18px;border-radius:50%;background:#2a7de1;border:3px solid #fff;box-shadow:0 0 0 6px rgba(42,125,225,.25)}
